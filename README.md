@@ -539,7 +539,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 Platform Engineer | AWS Specialist | Infrastructure Automation
 
 - LinkedIn: [linkedin.com/in/danielaugustormelo](https://linkedin.com/in/danielaugustormelo)
-- GitHub: [github.com/yourusername](https://github.com/yourusername)
+- GitHub: [github.com/DanielMelo1](https://github.com/DanielMelo1)
 
 ---
 
