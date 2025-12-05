@@ -1,0 +1,10 @@
+# Namespace for application deployment
+# Isolates application resources for better organization and security
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: boutique
+  labels:
+    app: online-boutique
+    environment: production
