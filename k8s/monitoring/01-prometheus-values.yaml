@@ -1,21 +1,9 @@
-# Prometheus configuration values
-# Configures metrics collection, retention, and storage for cluster monitoring
+# Simplified Prometheus configuration without persistence
+# For demo purposes - uses emptyDir for temporary storage
 
 prometheus:
   prometheusSpec:
-    # Retention period for metrics
-    retention: 7d
-    
-    # Storage configuration
-    storageSpec:
-      volumeClaimTemplate:
-        spec:
-          accessModes: ["ReadWriteOnce"]
-          resources:
-            requests:
-              storage: 10Gi
-    
-    # Resource limits
+    retention: 2d
     resources:
       requests:
         cpu: 200m
@@ -23,24 +11,15 @@ prometheus:
       limits:
         cpu: 500m
         memory: 1Gi
-    
-    # Service monitors to scrape
     serviceMonitorSelectorNilUsesHelmValues: false
     podMonitorSelectorNilUsesHelmValues: false
 
-# Grafana configuration
 grafana:
   enabled: true
   adminPassword: admin
   
   service:
-    type: LoadBalancer
-    annotations:
-      service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
-  
-  persistence:
-    enabled: true
-    size: 5Gi
+    type: ClusterIP
   
   resources:
     requests:
@@ -50,21 +29,8 @@ grafana:
       cpu: 200m
       memory: 256Mi
   
-  # Default dashboards
   defaultDashboardsEnabled: true
-  
-  # Datasources
-  datasources:
-    datasources.yaml:
-      apiVersion: 1
-      datasources:
-      - name: Prometheus
-        type: prometheus
-        url: http://prometheus-kube-prometheus-prometheus.monitoring:9090
-        isDefault: true
-        editable: true
 
-# Alertmanager configuration
 alertmanager:
   alertmanagerSpec:
     resources:
@@ -75,10 +41,8 @@ alertmanager:
         cpu: 100m
         memory: 128Mi
 
-# Node exporter for node metrics
 nodeExporter:
   enabled: true
 
-# Kube-state-metrics for Kubernetes object metrics
 kubeStateMetrics:
   enabled: true
