@@ -462,6 +462,67 @@ aws ec2 describe-instances --filters "Name=tag:Project,Values=k8s-platform"
 
 # Should return empty results
 ```
+## Known Limitations
+
+### AWS LoadBalancer Restriction
+
+During the demo execution, AWS account restrictions prevented the creation of Elastic Load Balancers:
+```
+Error: "OperationNotPermitted: This AWS account currently does not support creating load balancers."
+Status Code: 400
+```
+
+**Root Cause:**
+- New AWS accounts may have service limits that prevent ELB/NLB creation
+- Requires AWS Support contact to enable
+- Common restriction for accounts without payment history
+
+**Workaround Implemented:**
+
+Application access was achieved using `kubectl port-forward`:
+```bash
+# Access frontend application
+kubectl port-forward -n boutique svc/frontend 8080:80
+
+# Access in browser
+http://localhost:8080
+```
+
+**What This Demonstrates:**
+- Alternative access methods for Kubernetes services
+- Troubleshooting and problem-solving skills
+- Knowledge of multiple service exposure strategies
+- Ability to work around infrastructure constraints
+
+**Production Implementation:**
+
+In a production environment with full AWS account access, the recommended approach would be:
+
+1. **AWS Load Balancer Controller:**
+   - Automatic ALB/NLB provisioning
+   - Integration with Kubernetes Ingress
+   - Advanced traffic management
+
+2. **Ingress Controller:**
+   - NGINX Ingress with NLB
+   - Traefik with AWS integration
+   - Path-based routing
+
+3. **Service Mesh:**
+   - Istio with Gateway API
+   - Linkerd for advanced traffic control
+
+**Impact on Project:**
+
+This limitation does **not** affect the demonstration of:
+- Kubernetes orchestration capabilities
+- Microservices architecture deployment
+- Infrastructure as Code proficiency
+- Observability stack implementation
+- CI/CD workflow design
+- AWS EKS cluster management
+
+The core platform engineering skills and architectural decisions remain fully validated.
 
 ## Troubleshooting
 
