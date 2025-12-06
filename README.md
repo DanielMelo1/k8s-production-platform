@@ -1,5 +1,12 @@
 # Production-Ready Kubernetes Platform
 
+![Terraform](https://img.shields.io/badge/Terraform-1.12-7B42BC?logo=terraform&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-1.28-326CE5?logo=kubernetes&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-EKS-FF9900?logo=amazon-aws&logoColor=white)
+![Prometheus](https://img.shields.io/badge/Prometheus-2.45-E6522C?logo=prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-10.0-F46800?logo=grafana&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 > Enterprise-grade Kubernetes platform on AWS EKS with complete observability, GitOps CI/CD, and infrastructure automation.
 
 ## Overview
@@ -166,6 +173,40 @@ Google Online Boutique - a cloud-native microservices demo application.
 ├── .gitignore
 └── README.md
 ```
+
+## Project Evidence
+
+This project has been fully executed and validated. Complete visual documentation is available in the evidence gallery.
+
+### 📸 Screenshots Gallery
+
+**[View Complete Evidence →](https://drive.google.com/drive/folders/13Ufg9rditYGoqrIZu1HYw-22_ca39fwb?usp=sharing)**
+
+The gallery includes organized screenshots demonstrating:
+
+**Infrastructure (5 screenshots)**
+- Terraform provisioning process
+- AWS Console validation (EKS cluster, EC2 instances, VPC)
+- Resource creation and configuration
+
+**Kubernetes Deployment (3 screenshots)**
+- Cluster nodes and health status
+- Pod deployments across all namespaces
+- Service configurations and networking
+
+**Application (4 screenshots)**
+- 11-microservice e-commerce platform
+- Frontend interface and user interactions
+- Port-forward access method (LoadBalancer workaround)
+
+**Observability Stack (6 screenshots)**
+- Grafana dashboards and metrics
+- Kubernetes cluster monitoring
+- Node and pod performance visualization
+
+All evidence demonstrates the successful deployment and operation of a production-ready platform engineering solution.
+
+---
 
 ## Prerequisites
 
